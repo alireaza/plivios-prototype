@@ -1,12 +1,12 @@
-# Dockerized Laravel based on [LEP](https://github.com/alireaza/lep)
-Laravel application in a Docker container
+# Plivios Prototype based on [Dockerized Laravel](https://github.com/alireaza/dockerized-laravel)
+Plivios Prototype in a Docker container
 
 ## Install
 
 Via Composer
 ```bash
-$ git clone https://github.com/alireaza/dockerized-laravel.git laravel
-$ cd laravel
+$ git clone https://github.com/alireaza/plivios-prototype.git PliviosPrototype
+$ cd PliviosPrototype
 $ CURRENT_UID=$(id -u):$(id -g) docker-compose up --detach --build
 ```
 
