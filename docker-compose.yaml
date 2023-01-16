@@ -33,6 +33,7 @@ services:
       - ./src:/var/www/html
       - ./php/conf.d:/usr/local/etc/php/conf.d
       - ./php/udocker:/home/udocker
+      - ./src/supervisord/supervisord.conf:/etc/supervisord.conf
     restart: ${PHP_RESTART_POLICY:-always}
     environment:
       - PHP_OPCACHE_JIT=${PHP_OPCACHE_JIT:-on}
