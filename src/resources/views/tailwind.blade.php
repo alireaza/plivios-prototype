@@ -9,8 +9,6 @@
     @vite(['resources/css/app.css', 'resources/css/tailwind.scss'])
 </head>
 <body>
-<h1 class="text-3xl font-bold">
-    Hello world! Welcome to Plivios Prototype
-</h1>
+@yield('content')
 </body>
 </html>
