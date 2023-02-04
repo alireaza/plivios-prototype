@@ -13,6 +13,12 @@ class AuthenticationController extends Controller
 {
     public function create(AuthenticationCreateRequest $request): View
     {
+        if (!session()->has('url.intended')) {
+            $url = url()->previous();
+
+            session(['url.intended' => $url]);
+        }
+
         return view('authentication.create');
     }
 
@@ -22,6 +28,12 @@ class AuthenticationController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+
+            if (session()->has('url.intended')) {
+                $url = session()->get('url.intended');
+
+                return redirect()->to($url);
+            }
 
             return redirect()->route('user.show');
         }

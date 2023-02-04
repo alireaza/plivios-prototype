@@ -26,7 +26,7 @@ Route::group(['prefix' => '/user', 'as' => 'user.'], function (): void {
         Route::post('/', [UserController::class, 'store'])->name('store');
     });
 
-    Route::get('/', [UserController::class, 'show'])->name('show');
+    Route::get('/', [UserController::class, 'show'])->name('show')->middleware('auth');
 });
 
 Route::group(['prefix' => '/auth', 'as' => 'auth.'], function (): void {
@@ -36,7 +36,7 @@ Route::group(['prefix' => '/auth', 'as' => 'auth.'], function (): void {
     Route::delete('/', [AuthenticationController::class, 'destroy'])->name('destroy');
 });
 
-Route::group(['prefix' => '/download', 'as' => 'download.'], function (): void {
+Route::group(['prefix' => '/download', 'as' => 'download.', 'middleware' => 'auth'], function (): void {
     Route::get('/', [DownloadController::class, 'index'])->name('index');
 
     Route::group(['prefix' => '/create'], function (): void {
