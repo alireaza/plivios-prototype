@@ -56,6 +56,11 @@ return [
             'throw' => false,
         ],
 
+        'downloads' => [
+            'driver' => 'local',
+            'root' => storage_path('downloads'),
+            'throw' => false,
+        ],
     ],
 
     /*

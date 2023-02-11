@@ -28,7 +28,7 @@ class DownloadUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:2', 'max:128'],
-            'url' => ['required', 'string', 'min:2'],
+            'url' => ['required', 'string', 'min:2', 'url'],
             'type' => ['required', 'string', 'min:2', 'max:32', Rule::in(['data'])],
             'frequency' => ['required', 'integer', 'min:1', 'max:10080'],
         ];
